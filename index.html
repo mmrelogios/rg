@@ -283,7 +283,7 @@ footer .socials.mini a{color:var(--gold)}
     FOTOS: coloque a foto na pasta "fotos" (ao lado deste arquivo) com o nome do produto + .jpg
     (ou .png / .webp). Exemplo: fotos/pulseira-smartwatch.jpg  -> aparece sozinha. Sem foto, aparece a ilustração.
     NOVO PRODUTO: copie um bloco da lista CAT e troque o id, o nome e as medidas. */
- var WA='https://wa.me/5553984168637?text=',EXT=['jpg','png','webp','jpeg'];
+ var WA='https://wa.me/5553984168637?text=',EXT=['png','jpg','webp','jpeg'];
  var DRAW='<svg viewBox="0 0 200 200" aria-hidden="true"><defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6dc9b"/><stop offset="1" stop-color="#b98a3e"/></linearGradient></defs><rect x="68" y="8" width="64" height="62" rx="12" fill="#1c3558" stroke="url(#g1)" stroke-width="2.5"/><rect x="68" y="130" width="64" height="62" rx="12" fill="#1c3558" stroke="url(#g1)" stroke-width="2.5"/><g stroke="#f6dc9b" stroke-opacity=".5" stroke-width="2"><path d="M80 24h40M80 38h40M80 52h40M80 146h40M80 160h40M80 174h40"/></g><rect x="56" y="62" width="88" height="76" rx="22" fill="#0a1626" stroke="url(#g1)" stroke-width="4"/><rect x="64" y="70" width="72" height="60" rx="16" fill="#11263f"/><circle cx="100" cy="100" r="18" fill="none" stroke="#f6dc9b" stroke-width="2.5"/><path d="M100 100V88M100 100l9 5" stroke="#f6dc9b" stroke-width="2.5" stroke-linecap="round"/><rect x="144" y="86" width="6" height="16" rx="3" fill="url(#g1)"/></svg>';
  var CAT=[{
   id:'pulseira-smartwatch',name:'Pulseira smartwatch',short:'Pino rápido e deslizante, em vários tamanhos.',img:'',
@@ -399,7 +399,7 @@ footer .socials.mini a{color:var(--gold)}
  function hueOf(k){return Math.round((k*137.508+40)%360)}
  function drawFor(k){var h=hueOf(k);return DRAW.replace(/g1/g,'g'+k).replace(/#f6dc9b/g,'hsl('+h+',72%,82%)').replace(/#b98a3e/g,'hsl('+h+',55%,52%)').replace(/#1c3558/g,'hsl('+h+',45%,17%)').replace(/#0a1626/g,'hsl('+h+',45%,9%)').replace(/#11263f/g,'hsl('+h+',40%,13%)')}
  window.catImgErr=function(el){var n=+el.dataset.n;if(n<EXT.length-1){el.dataset.n=n+1;el.src='fotos/'+el.dataset.id+'.'+EXT[n+1]}else{el.parentNode.innerHTML=drawFor(+el.dataset.k)}};
- function ph(it){var last=it.img?EXT.length-1:0;return '<img src="'+(it.img||'fotos/'+it.id+'.'+EXT[0])+'" data-id="'+it.id+'" data-n="'+last+'" data-k="'+CAT.indexOf(it)+'" alt="'+it.name+'" onerror="catImgErr(this)">'}
+ function ph(it){var last=it.img?EXT.length-1:0;return '<img src="'+(it.img||'fotos/'+it.id+'.'+EXT[0])+'" data-id="'+it.id+'" data-n="'+last+'" data-k="'+CAT.indexOf(it)+'" alt="'+it.name+'" loading="lazy" decoding="async" onerror="catImgErr(this)">'}
  var dlg=document.getElementById('catDlg'),cp=document.getElementById('cp'),list=document.getElementById('cpList'),det=document.getElementById('cpDetail');
  list.innerHTML=CAT.map(function(it,i){return '<button type="button" class="cl-item" data-i="'+i+'"><span class="cl-th" style="--h:'+hueOf(i)+'">'+ph(it)+'</span><span class="cl-tx"><b>'+it.name+'</b><small>'+it.short+'</small></span></button>'}).join('');
  var waIcon=document.querySelector('.btn.wa svg').outerHTML;

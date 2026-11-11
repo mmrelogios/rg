@@ -39,7 +39,8 @@ header{position:sticky;top:0;z-index:30;background:rgba(10,19,34,.7);-webkit-bac
 .hero{padding:clamp(48px,7vw,96px) 0}
 .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(32px,5vw,72px);align-items:center}
 h1{font-family:var(--serif);font-weight:800;font-size:clamp(2.1rem,3.9vw,3.6rem);line-height:1.06;letter-spacing:-.04em;margin:0;color:var(--ivory)}
-h1 span{background:linear-gradient(100deg,var(--gold-hi),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+h1 span{white-space:nowrap;padding-bottom:.06em;background:linear-gradient(100deg,var(--gold-hi),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+@media (min-width:901px){h1 span{display:block}}
 .lead{margin-top:22px;font-size:1.08rem;color:var(--muted);max-width:46ch}
 .ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
 .logo-wrap{width:100%;max-width:440px;margin-inline:auto}
@@ -70,12 +71,13 @@ h2{font-family:var(--serif);font-weight:800;font-size:clamp(1.7rem,2.8vw,2.4rem)
 .stat span{color:var(--muted);font-size:.92rem}
 /* local */
 .visit{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-.visit .box:last-child{grid-column:1/-1}
+@media (min-width:901px){.hours li{padding:7px 0;font-size:.9rem}address span{line-height:1.5;font-size:.9rem}.visit .box{gap:18px}}
+.contact{grid-template-columns:1fr}.contact .box{flex-direction:row;align-items:center;flex-wrap:wrap}
 .box{background:none;border:0;border-top:1px solid var(--line);border-radius:0;padding:28px 0 0;display:flex;flex-direction:column;justify-content:space-between;gap:28px}
 .box>div+div{display:flex;justify-content:center}
 .box>div+div .btn{min-width:230px;justify-content:center}
-.map{height:150px;border-radius:18px;overflow:hidden;margin-bottom:22px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
-.map svg{width:100%;height:100%;display:block}
+.map{height:220px;border-radius:18px;overflow:hidden;margin-bottom:22px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
+.map iframe{width:100%;height:100%;display:block;border:0}
 .box h3{margin:0 0 14px;font-size:.9rem;font-weight:600;color:var(--gold)}
 address{font-style:normal;font-family:var(--serif);font-size:1.4rem;line-height:1.25;font-weight:700;letter-spacing:-.025em;color:#fff}
 address span{display:block;font:400 .95rem/1.7 var(--sans);color:var(--muted);margin-top:10px}
@@ -229,7 +231,7 @@ footer .socials.mini a{color:var(--steel)}
 <main id="topo">
 <div class="hero"><div class="wrap">
  <div>
-  <h1>Conserto de relógios e óculos, <span>com troca de vidro na hora.</span></h1>
+  <h1>Conserto de relógios e óculos <span>em Rio Grande - RS</span></h1>
   <p class="lead">Manutenção de relógios de vários modelos e ajustes em armações de óculos. Traga a sua peça e a gente avalia no momento.</p>
   <div class="ctas"><a class="btn wa" href="https://wa.me/5553984168637" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11.8 11.8 0 0 0 12 0C5.4 0 .1 5.3.1 11.8c0 2.1.5 4.1 1.6 5.9L0 24l6.5-1.7a11.9 11.9 0 0 0 5.5 1.4c6.6 0 11.9-5.3 11.9-11.8 0-3.1-1.2-6.1-3.4-8.4zM12 21.7c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.9 1 1-3.8-.2-.4a9.800 9.800 0 0 1-1.5-5.1C2 6.400 6.500 2 12 2c2.600 0 5.100 1 6.900 2.900a9.600 9.600 0 0 1 2.900 6.900c0 5.400-4.400 9.900-9.800 9.900zm5.400-7.400c-.3-.1-1.800-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.200-.2.200-.3.200-.6.100-.3-.1-1.200-.4-2.300-1.400-.9-.8-1.400-1.700-1.600-2-.2-.3 0-.5.100-.6l.4-.5c.1-.2.200-.3.300-.5.100-.2 0-.4 0-.5-.1-.1-.7-1.600-.9-2.200-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.100-.8.400-.3.300-1 1-1 2.500s1.100 2.900 1.200 3.100c.1.200 2.100 3.200 5.100 4.500.7.300 1.300.5 1.700.6.700.2 1.400.2 1.900.1.600-.1 1.800-.7 2-1.400.3-.7.300-1.300.2-1.400-.1-.1-.3-.2-.6-.3z"/></svg>Chamar no WhatsApp</a><a class="btn gold" href="#catalogo" data-cat>Ver catálogo</a><a class="btn gold" href="#onde">Como chegar</a></div>
  </div>
@@ -260,11 +262,16 @@ footer .socials.mini a{color:var(--steel)}
 <section id="onde" class="alt"><div class="wrap">
  <div class="head"><h2>Venha nos visitar</h2></div>
  <div class="visit">
-  <div class="box"><div><div class="map" aria-hidden="true"><svg viewBox="0 0 320 150" preserveAspectRatio="xMidYMid slice"><rect width="320" height="150" fill="#0f2038"/><g stroke="rgba(255,255,255,.09)" stroke-width="10" fill="none"><path d="M-10 40 H330"/><path d="M-10 110 H330"/><path d="M70 -10 V160"/><path d="M230 -10 V160"/></g><g stroke="rgba(255,255,255,.05)" stroke-width="5" fill="none"><path d="M-10 75 H330"/><path d="M150 -10 V160"/></g><path d="M-10 128 C60 100 110 150 180 120 S280 80 330 96" stroke="rgba(224,182,99,.16)" stroke-width="14" fill="none" stroke-linecap="round"/><ellipse cx="160" cy="75" rx="34" ry="22" fill="rgba(224,182,99,.12)"/><circle cx="160" cy="72" r="20" fill="rgba(224,182,99,.22)"/><path d="M160 98c-9-12-16-19-16-28a16 16 0 0 1 32 0c0 9-7 16-16 28z" fill="#e0b663" stroke="#f6dc9b" stroke-width="1.5"/><circle cx="160" cy="70" r="5.5" fill="#0a1322"/></svg></div><h3>Endereço</h3><address>24 de Maio, 661<span>Camelódromo · Corredor J, bancas 235/236<br>Corredor G, bancas 171/172<br>Rio Grande – RS, 96200-003</span></address></div>
+  <div class="box"><div><div class="map"><iframe title="Localização da M&amp;M Relógios no Google Maps" src="https://www.google.com/maps?q=Rua+24+de+Maio+661+Camel%C3%B3dromo+Rio+Grande+RS&amp;hl=pt-BR&amp;z=15&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div><h3>Endereço</h3><address>24 de Maio, 661<span>Camelódromo · Corredor J, bancas 235/236<br>Corredor G, bancas 171/172<br>Rio Grande – RS, 96200-003</span></address></div>
    <div><a class="btn gold sm" href="https://www.google.com/maps/search/?api=1&amp;query=Rua+24+de+Maio+661+Camel%C3%B3dromo+Rio+Grande+RS" target="_blank" rel="noopener">Abrir no mapa</a></div></div>
-  <div class="box"><div><h3>Contato</h3><a class="tel" href="tel:+5553984168637">(53) 98416-8637</a><p class="note">Chame antes de vir para tirar dúvidas.</p></div>
-   <div><a class="btn wa sm" href="https://wa.me/5553984168637" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11.8 11.8 0 0 0 12 0C5.4 0 .1 5.3.1 11.8c0 2.1.5 4.1 1.6 5.9L0 24l6.5-1.7a11.9 11.9 0 0 0 5.5 1.4c6.6 0 11.9-5.3 11.9-11.8 0-3.1-1.2-6.1-3.4-8.4zM12 21.7c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.9 1 1-3.8-.2-.4a9.800 9.800 0 0 1-1.5-5.1C2 6.400 6.500 2 12 2c2.600 0 5.100 1 6.900 2.900a9.600 9.600 0 0 1 2.900 6.900c0 5.400-4.400 9.900-9.800 9.900zm5.400-7.400c-.3-.1-1.800-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.200-.2.200-.3.200-.6.100-.3-.1-1.200-.4-2.300-1.400-.9-.8-1.400-1.700-1.600-2-.2-.3 0-.5.100-.6l.4-.5c.1-.2.200-.3.300-.5.100-.2 0-.4 0-.5-.1-.1-.7-1.600-.9-2.200-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.100-.8.400-.3.300-1 1-1 2.500s1.100 2.900 1.200 3.100c.1.200 2.100 3.200 5.100 4.500.7.300 1.300.5 1.700.6.700.2 1.400.2 1.900.1.600-.1 1.800-.7 2-1.400.3-.7.300-1.300.2-1.400-.1-.1-.3-.2-.6-.3z"/></svg>Chamar no WhatsApp</a></div></div>
   <div class="box"><div><h3>Horário de atendimento</h3><div class="status" data-status></div><ul class="hours"><li data-d="1"><span>segunda-feira</span><span>09:00 - 19:00</span></li><li data-d="2"><span>terça-feira</span><span>09:00 - 19:00</span></li><li data-d="3"><span>quarta-feira</span><span>09:00 - 19:00</span></li><li data-d="4"><span>quinta-feira</span><span>09:00 - 19:00</span></li><li data-d="5"><span>sexta-feira</span><span>09:00 - 19:00</span></li><li data-d="6"><span>sábado</span><span>09:00 - 19:00</span></li><li data-d="0"><span>domingo</span><span>Fechada</span></li></ul></div></div>
+ </div>
+</div></section>
+<section id="contato"><div class="wrap">
+ <div class="head"><h2>Contato</h2></div>
+ <div class="visit contact">
+  <div class="box"><div><a class="tel" href="tel:+5553984168637">(53) 98416-8637</a><p class="note">Chame antes de vir para tirar dúvidas.</p></div>
+   <div><a class="btn wa sm" href="https://wa.me/5553984168637" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11.8 11.8 0 0 0 12 0C5.4 0 .1 5.3.1 11.8c0 2.1.5 4.1 1.6 5.9L0 24l6.5-1.7a11.9 11.9 0 0 0 5.5 1.4c6.6 0 11.9-5.3 11.9-11.8 0-3.1-1.2-6.1-3.4-8.4zM12 21.7c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.9 1 1-3.8-.2-.4a9.800 9.800 0 0 1-1.5-5.1C2 6.400 6.500 2 12 2c2.600 0 5.100 1 6.900 2.900a9.600 9.600 0 0 1 2.900 6.900c0 5.400-4.400 9.900-9.800 9.900zm5.400-7.400c-.3-.1-1.800-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.200-.2.200-.3.200-.6.100-.3-.1-1.200-.4-2.300-1.400-.9-.8-1.400-1.700-1.600-2-.2-.3 0-.5.100-.6l.4-.5c.1-.2.200-.3.300-.5.100-.2 0-.4 0-.5-.1-.1-.7-1.600-.9-2.200-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.100-.8.400-.3.300-1 1-1 2.500s1.100 2.900 1.200 3.100c.1.200 2.100 3.200 5.100 4.500.7.300 1.300.5 1.700.6.700.2 1.400.2 1.900.1.600-.1 1.800-.7 2-1.400.3-.7.300-1.300.2-1.400-.1-.1-.3-.2-.6-.3z"/></svg>Chamar no WhatsApp</a></div></div>
  </div>
 </div></section>
 <section id="redes"><div class="wrap">

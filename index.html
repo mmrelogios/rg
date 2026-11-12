@@ -304,6 +304,66 @@ footer .socials.mini a{color:var(--steel)}
 @media (min-width:561px){#servicos .card:nth-child(-n+3){border-top-color:transparent}}
 .rating-row{margin-top:22px}.rating{margin-top:0}
 @media (max-width:560px){.rating-row{margin-top:38px}}
+
+/* refinamento visual */
+html{scrollbar-color:rgba(224,182,99,.45) var(--navy)}
+h1,h2,h3{text-wrap:balance}
+p,.lead,.sub,.card p{text-wrap:pretty}
+header{border-bottom:0}
+header::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:linear-gradient(90deg,transparent,rgba(224,182,99,.5),transparent);pointer-events:none}
+.logo-wrap{position:relative;isolation:isolate}
+.logo-wrap::before{content:"";position:absolute;inset:6% 4%;border-radius:50%;background:radial-gradient(circle,rgba(224,182,99,.26),rgba(52,110,255,.06) 55%,transparent 70%);filter:blur(28px);z-index:-1}
+.hero-logo{position:relative}
+.lead{font-size:1.12rem;line-height:1.7}
+.btn.gold{background:rgba(224,182,99,.06)}
+.btn.wa{box-shadow:0 14px 34px -14px rgba(37,211,102,.7)}
+.btn:focus-visible,.cart:focus-visible,.share-btn:focus-visible{outline:2px solid var(--gold-hi);outline-offset:3px}
+.card{padding-top:30px}
+.card h3{font-size:1.2rem}
+.stat{transition:border-color .25s,transform .25s}
+@media (hover:hover){.stat:hover{border-color:rgba(224,182,99,.4);transform:translateY(-2px)}}
+.share-menu{backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+
+
+
+/* paleta: azul marinho da marca + dourado/champanhe da logo, com azul safira, aço, sálvia e vinho como apoio */
+:root{--sapphire:#3d6fd6;--steel:#8fb3e8;--sage:#7fb5a0;--champagne:#f0e0b0;--wine:#b5707a;--wine-hi:#e6aab2}
+body{background:radial-gradient(760px 520px at 88% -4%,rgba(240,208,128,.13),transparent 65%),radial-gradient(820px 560px at -5% 38%,rgba(61,111,214,.2),transparent 62%),radial-gradient(640px 420px at 60% 110%,rgba(61,111,214,.08),transparent 70%),var(--navy)}
+.alt{background:linear-gradient(180deg,rgba(61,111,214,.07),rgba(61,111,214,.02))}
+.tag{background:rgba(240,208,128,.1);box-shadow:inset 0 0 0 1px rgba(240,208,128,.34)}
+h1 span{background:linear-gradient(100deg,var(--gold-hi),var(--gold));-webkit-background-clip:text;background-clip:text}
+.hours li.today span:last-child{color:var(--gold-hi)}
+#servicos .grid .card{border-top-color:transparent}
+#onde .box{border-top-color:transparent}
+#onde .head .tag{display:flex;margin:0 0 14px;padding:0;background:none;box-shadow:none;border-radius:0;color:var(--muted);font-size:1rem;font-weight:400;line-height:1.6}
+#onde .head .tag svg{stroke:var(--muted)}
+/* ajustes de linhas e espaçamentos nas seções de visita, contato e redes */
+.alt{border-block-color:transparent}
+#onde .box,#contato .box{border-top-color:transparent;padding-top:0;gap:18px}
+#onde .map{margin-bottom:18px}
+#onde .head,#contato .head{margin-bottom:36px}
+#contato .box{padding-bottom:0}
+#onde .box h3,#contato .box h3{margin-bottom:12px}
+/* blocos no mesmo estilo dos cards de serviços: Horário, Contato e Siga a gente */
+#redes .soc-card{border:0;border-radius:24px;padding:30px;background:linear-gradient(170deg,rgba(255,255,255,.055),rgba(255,255,255,.015));box-shadow:inset 0 0 0 1px var(--line)}
+/* faixas de cor separando as seções: Horário (sálvia), Contato (champanhe), Siga a gente (safira) */
+#contato{background:linear-gradient(180deg,rgba(61,111,214,.1),rgba(61,111,214,.02));border-top:1px solid rgba(143,179,232,.14)}
+#contato .box{background:none;box-shadow:none;padding:0;border-radius:0}
+#contato .box h3{color:var(--gold)}
+#redes{background:linear-gradient(180deg,rgba(61,111,214,.12),rgba(61,111,214,.03));border-top:1px solid rgba(143,179,232,.16)}
+#onde .visit .box:nth-child(2){background:none;box-shadow:none;border-radius:0;padding:0}
+@media (max-width:560px){#onde .visit .box:nth-child(2){padding:0}}
+/* Venha nos visitar: mapa em destaque e informações organizadas em duas colunas */
+#onde .loc{display:grid;gap:32px}
+#onde .loc .map{height:340px;margin:0;border-radius:24px;box-shadow:inset 0 0 0 1px var(--line),0 30px 60px -36px rgba(0,0,0,.6)}
+#onde .loc-info{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,80px);align-items:start}
+#onde .loc-info h3{margin:0 0 14px;font-size:.8rem;font-weight:700;letter-spacing:.02em;color:var(--gold)}
+#onde .loc-addr address{font-size:1.6rem}
+#onde .loc-addr .btn{margin-top:24px}
+#onde .loc-hours .status{display:flex;margin:0 0 18px}
+#onde .loc-hours .hours li:first-child{border-top:0}
+@media (max-width:900px){#onde .loc-info{grid-template-columns:1fr}}
+@media (max-width:560px){#onde .loc .map{height:260px;border-radius:20px}#onde .loc-addr .btn{width:100%;justify-content:center}}
 </style>
 <script>if(!matchMedia('(prefers-reduced-motion:reduce)').matches&&'IntersectionObserver' in window)document.documentElement.classList.add('rv-on')</script>
 </head>
@@ -352,11 +412,13 @@ footer .socials.mini a{color:var(--steel)}
 </div></section>
 
 <section id="onde" class="alt"><div class="wrap">
- <div class="head"><span class="tag"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Relojoaria em Rio Grande, Rio Grande do Sul, Brasil</span><h2>Venha nos visitar</h2></div>
- <div class="visit">
-  <div class="box"><div><div class="map"><iframe title="Localização da M&amp;M Relógios no Google Maps" src="https://www.google.com/maps?q=Rua+24+de+Maio+661+Camel%C3%B3dromo+Rio+Grande+RS&amp;hl=pt-BR&amp;z=15&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div><h3>Endereço</h3><address>24 de Maio, 661<span>Camelódromo · Corredor J, bancas 235/236<br>Corredor G, bancas 171/172<br>Rio Grande – RS, 96200-003</span></address></div>
-   <div><a class="btn gold sm" href="https://www.google.com/maps/search/?api=1&amp;query=Rua+24+de+Maio+661+Camel%C3%B3dromo+Rio+Grande+RS" target="_blank" rel="noopener">Abrir no mapa</a></div></div>
-  <div class="box"><div><h3>Horário de atendimento</h3><div class="status" data-status></div><ul class="hours"><li data-d="1"><span>segunda-feira</span><span>09:00 - 19:00</span></li><li data-d="2"><span>terça-feira</span><span>09:00 - 19:00</span></li><li data-d="3"><span>quarta-feira</span><span>09:00 - 19:00</span></li><li data-d="4"><span>quinta-feira</span><span>09:00 - 19:00</span></li><li data-d="5"><span>sexta-feira</span><span>09:00 - 19:00</span></li><li data-d="6"><span>sábado</span><span>09:00 - 19:00</span></li><li data-d="0"><span>domingo</span><span>Fechada</span></li></ul></div></div>
+ <div class="head"><h2>Venha nos visitar</h2></div>
+ <div class="loc">
+  <div class="map"><iframe title="Localização da M&amp;M Relógios no Google Maps" src="https://www.google.com/maps?q=Rua+24+de+Maio+661+Camel%C3%B3dromo+Rio+Grande+RS&amp;hl=pt-BR&amp;z=15&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
+  <div class="loc-info">
+   <div class="loc-addr"><h3>Endereço</h3><address>24 de Maio, 661<span>Camelódromo · Corredor J, bancas 235/236<br>Corredor G, bancas 171/172<br>Rio Grande – RS, 96200-003</span></address><div><a class="btn gold sm" href="https://www.google.com/maps/search/?api=1&amp;query=Rua+24+de+Maio+661+Camel%C3%B3dromo+Rio+Grande+RS" target="_blank" rel="noopener">Abrir no mapa</a></div></div>
+   <div class="loc-hours"><h3>Horário de atendimento</h3><div class="status" data-status></div><ul class="hours"><li data-d="1"><span>segunda-feira</span><span>09:00 - 19:00</span></li><li data-d="2"><span>terça-feira</span><span>09:00 - 19:00</span></li><li data-d="3"><span>quarta-feira</span><span>09:00 - 19:00</span></li><li data-d="4"><span>quinta-feira</span><span>09:00 - 19:00</span></li><li data-d="5"><span>sexta-feira</span><span>09:00 - 19:00</span></li><li data-d="6"><span>sábado</span><span>09:00 - 19:00</span></li><li data-d="0"><span>domingo</span><span>Fechada</span></li></ul></div>
+  </div>
  </div>
 </div></section>
 <section id="contato"><div class="wrap">

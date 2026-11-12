@@ -1035,9 +1035,12 @@ dialog#bookDlg,dialog#bookDlg:focus,.bk:focus,.bk-in:focus{outline:none}
   if(!st.serv.length&&!extra)return setErr('Marque o que você precisa ou conte rapidinho o que aconteceu.',servEl);
   try{localStorage.setItem('mm_nome',nome)}catch(e){}
   var d=parse(st.day);
-  var txt='Olá! Meu nome é '+nome+'.\nGostaria de marcar uma avaliação:\n'+
-   '📅 '+DOW[d.getDay()]+', '+fmtShort(d)+'\n🕒 '+st.time+'\n'+
-   '🔧 '+(st.serv.length?st.serv.map(function(i){return SERV[i].t}).join(', '):'A combinar')+(extra?'\n📝 '+extra:'');
+  var txt='Olá! Gostaria de marcar uma avaliação.\n\n'+
+   '*Nome:* '+nome+'\n'+
+   '*Dia:* '+DOW[d.getDay()]+', '+fmtShort(d)+'\n'+
+   '*Horário:* '+st.time+'\n'+
+   '*Serviço:* '+(st.serv.length?st.serv.map(function(i){return SERV[i].t}).join(', '):'A combinar')+
+   (extra?'\n*Detalhes:* '+extra:'')+'\n\nPode confirmar o horário? Obrigado!';
   var url=WA+encodeURIComponent(txt);
   $('bkAgain').href=url;
   window.open(url,'_blank','noopener');
